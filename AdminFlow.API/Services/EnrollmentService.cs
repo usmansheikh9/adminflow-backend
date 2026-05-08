@@ -98,12 +98,16 @@ public class StatsService(AppDbContext db)
             .AverageAsync(e => (double?)e.Grade) ?? 0;
 
         var topCourses = await db.Enrollments
-            .Where(e => e.Status == "enrolled")
+     .Where(e => e.Status == "enrolled")
+     .Include(e => e.Course)
+     .ToListAsync();
+
+        var topCoursesList = topCourses
             .GroupBy(e => e.Course.Title)
             .Select(g => new CourseEnrollmentStat(g.Key, g.Count()))
             .OrderByDescending(x => x.EnrollmentCount)
             .Take(5)
-            .ToListAsync();
+            .ToList();
 
         var recentActivity = await db.Enrollments
             .Include(e => e.Student)
@@ -120,7 +124,7 @@ public class StatsService(AppDbContext db)
         return new DashboardStats(
             totalStudents, totalTeachers, totalCourses,
             activeEnrollments, Math.Round(avgGrade, 1),
-            newStudents, topCourses, recentActivity
+            newStudents, topCoursesList, recentActivity
         );
     }
 }

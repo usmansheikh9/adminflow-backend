@@ -7,11 +7,11 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
 // EF Core + SQL Server
 builder.Services.AddDbContext<AppDbContext>(opt =>
-    opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
+    opt.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 // Services
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<UserService>();

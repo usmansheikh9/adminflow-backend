@@ -13,27 +13,27 @@ public static class DbSeeder
         {
             Name = "Usman Sheikh",
             Email = "admin@adminflow.io",
-            PasswordHash = BCrypt.HashPassword("admin123"),
+            PasswordHash = BCrypt.Net.BCrypt.HashPassword("admin123"),
             Role = Roles.Admin,
         };
 
         var teachers = new[]
         {
-            new User { Name = "Sarah Johnson",  Email = "sarah@adminflow.io",  PasswordHash = BCrypt.HashPassword("teacher123"), Role = Roles.Teacher },
-            new User { Name = "Mike Chen",       Email = "mike@adminflow.io",   PasswordHash = BCrypt.HashPassword("teacher123"), Role = Roles.Teacher },
-            new User { Name = "Emma Davis",      Email = "emma@adminflow.io",   PasswordHash = BCrypt.HashPassword("teacher123"), Role = Roles.Teacher },
+            new User { Name = "Sarah Johnson",  Email = "sarah@adminflow.io",  PasswordHash = BCrypt.Net.BCrypt.HashPassword("teacher123"), Role = Roles.Teacher },
+            new User { Name = "Mike Chen",       Email = "mike@adminflow.io",   PasswordHash = BCrypt.Net.BCrypt.HashPassword("teacher123"), Role = Roles.Teacher },
+            new User { Name = "Emma Davis",      Email = "emma@adminflow.io",   PasswordHash = BCrypt.Net.BCrypt.HashPassword("teacher123"), Role = Roles.Teacher },
         };
 
         var students = new[]
         {
-            new User { Name = "James Wilson",    Email = "james@student.io",    PasswordHash = BCrypt.HashPassword("student123"), Role = Roles.Student },
-            new User { Name = "Lisa Wang",       Email = "lisa@student.io",     PasswordHash = BCrypt.HashPassword("student123"), Role = Roles.Student },
-            new User { Name = "Tom Anderson",    Email = "tom@student.io",      PasswordHash = BCrypt.HashPassword("student123"), Role = Roles.Student },
-            new User { Name = "Anna Martinez",   Email = "anna@student.io",     PasswordHash = BCrypt.HashPassword("student123"), Role = Roles.Student },
-            new User { Name = "David Lee",       Email = "david@student.io",    PasswordHash = BCrypt.HashPassword("student123"), Role = Roles.Student },
-            new User { Name = "Rachel Kim",      Email = "rachel@student.io",   PasswordHash = BCrypt.HashPassword("student123"), Role = Roles.Student },
-            new User { Name = "Chris Brown",     Email = "chris@student.io",    PasswordHash = BCrypt.HashPassword("student123"), Role = Roles.Student },
-            new User { Name = "Priya Patel",     Email = "priya@student.io",    PasswordHash = BCrypt.HashPassword("student123"), Role = Roles.Student },
+            new User { Name = "James Wilson",    Email = "james@student.io",    PasswordHash = BCrypt.Net.BCrypt.HashPassword("student123"), Role = Roles.Student },
+            new User { Name = "Lisa Wang",       Email = "lisa@student.io",     PasswordHash = BCrypt.Net.BCrypt.HashPassword("student123"), Role = Roles.Student },
+            new User { Name = "Tom Anderson",    Email = "tom@student.io",      PasswordHash = BCrypt.Net.BCrypt.HashPassword("student123"), Role = Roles.Student },
+            new User { Name = "Anna Martinez",   Email = "anna@student.io",     PasswordHash = BCrypt.Net.BCrypt.HashPassword("student123"), Role = Roles.Student },
+            new User { Name = "David Lee",       Email = "david@student.io",    PasswordHash = BCrypt.Net.BCrypt.HashPassword("student123"), Role = Roles.Student },
+            new User { Name = "Rachel Kim",      Email = "rachel@student.io",   PasswordHash = BCrypt.Net.BCrypt.HashPassword("student123"), Role = Roles.Student },
+            new User { Name = "Chris Brown",     Email = "chris@student.io",    PasswordHash = BCrypt.Net.BCrypt.HashPassword("student123"), Role = Roles.Student },
+            new User { Name = "Priya Patel",     Email = "priya@student.io",    PasswordHash = BCrypt.Net.BCrypt.HashPassword("student123"), Role = Roles.Student },
         };
 
         db.Users.Add(admin);
