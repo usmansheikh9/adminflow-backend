@@ -6,3 +6,4 @@ appsettings.Development.json
 *.db
 .DS_Store
 .claude/
+appsettings.json
